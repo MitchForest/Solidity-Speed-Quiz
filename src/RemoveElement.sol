@@ -14,5 +14,11 @@ contract RemoveElement {
         // the new array should have a length of arr.length - 1
         // use swap-and-pop to remove the item
 
+        require(index < arr.length, "Index doesn't exist");
+        arr[index] = arr[arr.length - 1]; // swap the item at index with the last item
+        arr.pop(); // remove the last item
+
     }
 }
+
+// forge test --match-contract RemoveElement
