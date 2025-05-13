@@ -3,6 +3,8 @@ pragma solidity 0.8.28;
 
 contract RemoveElement {
 
+    // Solidity does not have a built-in function to remove an element from an array so we need to create our own by swapping the element at the index with the last element and then popping the last element
+
     uint256[] public arr;
 
     function setArr(uint256[] memory _arr) public {
@@ -10,13 +12,10 @@ contract RemoveElement {
     }
 
     function removeElement(uint256 index) public {
-        // remove the item at index from arr
-        // the new array should have a length of arr.length - 1
-        // use swap-and-pop to remove the item
 
         require(index < arr.length, "Index doesn't exist");
-        arr[index] = arr[arr.length - 1]; // swap the item at index with the last item
-        arr.pop(); // remove the last item
+        arr[index] = arr[arr.length - 1];
+        arr.pop();
 
     }
 }
