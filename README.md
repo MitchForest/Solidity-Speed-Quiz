@@ -18,21 +18,21 @@ Problems are grouped by theme and generally go from easier to harder.
 - StringCompare.sol [x]
 - MemoryArray.sol [x]
 - Bytes.sol [x]
-- StringIndex.sol []
-- IsFirstBitSet.sol []
-- IsNBitSet.sol []
-- ConvertToNegative.sol []
-- Multiplication.sol []
-- MultiplyConstant.sol
-- DivUp.sol
-- NinetyNinePercent.sol
-- RationalFunction.sol
-- TryCatchSimple.sol
-- TryCatchReason.sol
-- ReadStruct.sol
-- BadBank.sol
-- IsContract.sol
-- AccountMaker.sol
+- StringIndex.sol [x]
+- IsFirstBitSet.sol [x]
+- IsNBitSet.sol [x]
+- ConvertToNegative.sol [x]
+- Multiplication.sol [x]
+- MultiplyConstant.sol []
+- DivUp.sol []
+- NinetyNinePercent.sol []
+- RationalFunction.sol []
+- TryCatchSimple.sol []
+- TryCatchReason.sol []
+- ReadStruct.sol []
+- BadBank.sol []
+- IsContract.sol []
+- AccountMaker.sol []
 - LowLevel.sol
 - LowLevelArgs1.sol
 - LowLevelArgs2.sol
