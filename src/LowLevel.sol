@@ -8,7 +8,12 @@ contract LowLevel {
         // return true if the call succeeded
         // return false if the call failed
 
-        // bonus challenge: use an interface and a high level call to accomplish the same task
+        // Get the function selector for foo()
+        bytes4 selector = bytes4(keccak256("foo()"));
 
+        // Perform the low-level call
+        (bool success, ) = a.call(abi.encodeWithSelector(selector));
+
+        return success;
     }
 }

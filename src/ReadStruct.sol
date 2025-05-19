@@ -20,5 +20,11 @@ contract ReadStruct {
         // in reversed order, i.e. x is y and y is x
         // do not redeclare the struct in this contract or 
         // reference it in ViewContract
+        // Cast the address to ViewContract
+        ViewContract vc = ViewContract(a);
+    
+        // Call the auto-generated getter for the public struct 's'
+        // This returns (uint256, uint256) corresponding to (s.x, s.y)
+        (x, y) = vc.s();
     }
 }

