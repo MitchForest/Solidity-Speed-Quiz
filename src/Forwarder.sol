@@ -5,9 +5,27 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 
 contract YourContract {
-    function main(address target, address forwarder) public {
+    function main(address target, address forwarderAddress) public {
         // make the right function call such that YourContract gets 100 tokens
         // you may only modify this function
+
+        // 1. Prepare the calldata for the Target.giveTokens(address to) function
+        //    The 'to' address should be this contract (YourContract)
+        //    The function signature is "giveTokens(address)"
+        bytes memory calldataForGiveTokens = abi.encodeWithSignature(
+            "giveTokens(address)",
+            address(this)
+        );
+
+        // 2. Get an instance of the Forwarder contract at the given address
+        Forwarder forwarderContract = Forwarder(forwarderAddress);
+
+        // 3. Call the Forwarder's 'forward' function
+        //    - The first argument to 'forward' is the 'target' contract (which is the Target instance)
+        //    - The second argument is the 'calldataForGiveTokens' we prepared
+        //    This will make the Forwarder contract call Target.giveTokens(address(this))
+        //    Inside Target.giveTokens, msg.sender will be forwarderAddress, satisfying the check
+        forwarderContract.forward(target, calldataForGiveTokens);
     }
 }
 

@@ -33,17 +33,17 @@ Problems are grouped by theme and generally go from easier to harder.
 - BadBank.sol [x]
 - IsContract.sol [x]
 - AccountMaker.sol [x]
-- LowLevel.sol
-- LowLevelArgs1.sol
-- LowLevelArgs2.sol
-- LowLevelReturnUint.sol
-- LowLevelReturnString.sol
-- LowLevelStruct.sol
-- Forwarder.sol
-- SelfCall.sol
-- StorageSet.sol
-- MappingSet.sol
-- NoDelegateCall.sol
-- GetEther.sol
+- LowLevel.sol [x]
+- LowLevelArgs1.sol [x]
+- LowLevelArgs2.sol [x]
+- LowLevelReturnUint.sol [x]
+- LowLevelReturnString.sol [x]
+- LowLevelStruct.sol [x]
+- Forwarder.sol [x]
+- SelfCall.sol [x]
+- StorageSet.sol [x]
+- MappingSet.sol [x]
+- NoDelegateCall.sol [x]
+- GetEther.sol [x]
 
 Fill out the code and then test it with `forge test --match-contract <contract-name>`.
